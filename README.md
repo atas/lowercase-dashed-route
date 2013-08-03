@@ -3,6 +3,9 @@ lowercase-dashed-routing
 
 lowercase-dashed/hyphenated-routing-for-asp-net-mvc/like-this
 
+[NuGet Package](https://www.nuget.org/packages/LowercaseDashedRoute/).
+Install with NuGet: `PM> Install-Package LowercaseDashedRoute`
+
 
 <h3>Example</h3>
 <strong>If you use:</strong>
