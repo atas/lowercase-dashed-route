@@ -15,7 +15,7 @@ Html.ActionLink("User Profile", "UserProfile", "Account")
 `yoursite.com/account/user-profile`
 
 <h3>How to use?</h3>
-Open RouteConfig.cs in App_Start folder. Comment old routes.add(...) line and instead add:
+Open RouteConfig.cs in App_Start folder. Comment old routes.MapRoute(...) call and instead use:
 
 ```c#
 routes.Add(new LowercaseDashedRoute("{controller}/{action}/{id}",
