@@ -1,5 +1,3 @@
-// by Ata Sasmaz http://www.ata.io
-
 using System.Text;
 using System.Web.Routing;
 
