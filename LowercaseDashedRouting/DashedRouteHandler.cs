@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace LowercaseDashedRoute
+namespace LowercaseDashedRouting
 {
     public class DashedRouteHandler : MvcRouteHandler
     {

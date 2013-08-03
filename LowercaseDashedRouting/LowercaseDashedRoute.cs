@@ -3,9 +3,9 @@
 using System.Text;
 using System.Web.Routing;
 
-namespace LowercaseDashedRoute
+namespace LowercaseDashedRouting
 {
-    internal class LowercaseDashedRoute : Route
+    public class LowercaseDashedRoute : Route
     {
         public LowercaseDashedRoute (string url, IRouteHandler routeHandler)
 			: this (url, null, routeHandler)
@@ -44,13 +44,13 @@ namespace LowercaseDashedRoute
                 {
                     if (lastIndexOf > 0)
                     {
-                        string leftPart = AddDashesBeforeCapitals(virtualPath.Substring(0, lastIndexOf));
+                        string leftPart = AddDashesBeforeCapitals(virtualPath.Substring(0, lastIndexOf)).ToLowerInvariant();
                         string queryPart = virtualPath.Substring(lastIndexOf);
                         path.VirtualPath = leftPart + queryPart;
                     }
                     else
                     {
-                        path.VirtualPath = AddDashesBeforeCapitals(path.VirtualPath);
+                        path.VirtualPath = AddDashesBeforeCapitals(path.VirtualPath).ToLowerInvariant();
                     }
                 }
             }

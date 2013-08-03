@@ -1,15 +1,14 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LowercaseDashedRoute")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("LowercaseDashedRouting")]
+[assembly: AssemblyDescription("Makes ASP.NET MVC routes dashed (hyphenated) and lowercase i.e. yoursite.com/account/user-profile")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LowercaseDashedRoute")]
+[assembly: AssemblyCompany("Ata Sasmaz")]
+[assembly: AssemblyProduct("LowercaseDashedRouting")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

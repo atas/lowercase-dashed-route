@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LowercaseDashedRoute", "LowercaseDashedRoute\LowercaseDashedRoute.csproj", "{60AF4435-A22E-4937-BEB6-7A6A4EDE832D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LowercaseDashedRouting", "LowercaseDashedRouting\LowercaseDashedRouting.csproj", "{60AF4435-A22E-4937-BEB6-7A6A4EDE832D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
