@@ -12,7 +12,7 @@ Html.ActionLink("User Profile", "UserProfile", "Account")
 `yoursite.com/Account/UserProfile`
 
 **<u>With</u>** Lowercase Dashed Route the url is:<br />
-`site.com/account/user-profile`
+`yoursite.com/account/user-profile`
 
 <h3>How to use?</h3>
 Open RouteConfig.cs in App_Start folder. Comment old routes.add(...) line and instead add:
