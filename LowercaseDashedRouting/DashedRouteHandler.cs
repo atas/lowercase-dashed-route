@@ -1,5 +1,3 @@
-﻿// by Ata Sasmaz http://www.ata.io
-
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
