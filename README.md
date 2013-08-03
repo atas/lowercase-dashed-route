@@ -25,3 +25,6 @@ routes.Add(new LowercaseDashedRoute("{controller}/{action}/{id}",
   )
 );
 ```
+
+Developers: <br/>
+[Ata Sasmaz](http://www.ata.io)
