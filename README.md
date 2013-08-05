@@ -17,7 +17,7 @@ Html.ActionLink("User Profile", "UserProfile", "Account")
 **<u>With</u>** Lowercase Dashed Route the url is:<br />
 `yoursite.com/account/user-profile`
 
-<h3>How to use?</h3>
+<h3>Initial Configuration</h3>
 Open RouteConfig.cs in App_Start folder. Comment out old routes.MapRoute(...) call and instead use:
 
 ```c#
