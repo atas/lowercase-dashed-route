@@ -22,11 +22,25 @@ Open RouteConfig.cs in App_Start folder. Comment out old routes.MapRoute(...) ca
 
 ```c#
 routes.Add(new LowercaseDashedRoute("{controller}/{action}/{id}",
-  new RouteValueDictionary(
-    new { controller = "Home", action = "Index", id = UrlParameter.Optional }),
-    new DashedRouteHandler()
-  )
+    new RouteValueDictionary(
+        new { controller = "Home", action = "Index", id = UrlParameter.Optional }),
+        new DashedRouteHandler()
+    )
 );
+```
+
+If you are using areas, edit use the code below for your XxxAreaRegistration.cs file:
+```c#
+var route = new LowercaseDashedRoute("AreaName/{controller}/{action}/{id}",
+        new RouteValueDictionary(
+            new
+            {
+                action = "Index",
+                id = UrlParameter.Optional
+            }),
+        new DashedRouteHandler()
+    );
+context.Routes.Add("AreaName_default", route);
 ```
 
 Developers: <br/>
