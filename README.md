@@ -29,7 +29,7 @@ routes.Add(new LowercaseDashedRoute("{controller}/{action}/{id}",
 );
 ```
 
-If you are using areas, use the code below in your XxxAreaRegistration.cs file instead of default one:
+If you are using areas, use the code below in your XxxAreaRegistration.cs file instead of default one and replace "AreaName"s with yours:
 ```c#
 var route = new LowercaseDashedRoute("AreaName/{controller}/{action}/{id}",
         new RouteValueDictionary(
