@@ -47,3 +47,5 @@ context.Routes.Add("AreaName_default", route);
 
 Developers: <br/>
 [Ata Sasmaz](http://www.ata.io)
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/68aaf0cf0d381566c247ed5749e15135 "githalytics.com")](http://githalytics.com/AtaS/lowercase-dashed-route)
