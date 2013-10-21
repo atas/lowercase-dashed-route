@@ -4,7 +4,7 @@ lowercase-dashed-routing
 lowercase-dashed/hyphenated-routing-for-asp-net-mvc/like-this
 
 [NuGet Package](https://www.nuget.org/packages/LowercaseDashedRoute/).
-Install with NuGet: `PM> Install-Package LowercaseDashedRoute`
+Install with NuGet: `PM> Install-Package LowercaseDashedRoute` | [See my blog post & discussion](http://www.ata.io/lowercase-dashed-route/?utm_source=github&utm_medium=link&utm_content=bottom+link&utm_campaign=lowercase-dashed-route)
 
 Requires .NET 4.0 or .NET 4.5.
 
@@ -46,6 +46,6 @@ context.Routes.Add("AreaName_default", route);
 ```
 
 Developers: <br/>
-[Ata Sasmaz](http://www.ata.io)
+[Ata Sasmaz](http://www.ata.io/?utm_source=github&utm_medium=link&utm_content=bottom+link&utm_campaign=lowercase-dashed-route)
 
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/68aaf0cf0d381566c247ed5749e15135 "githalytics.com")](http://githalytics.com/AtaS/lowercase-dashed-route)
