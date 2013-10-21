@@ -5,6 +5,7 @@ lowercase-dashed/hyphenated-routing-for-asp-net-mvc/like-this
 
 [NuGet Package](https://www.nuget.org/packages/LowercaseDashedRoute/).
 Install with NuGet: `PM> Install-Package LowercaseDashedRoute`
+
 [See my blog post & discussion](http://www.ata.io/lowercase-dashed-route/?utm_source=github&utm_medium=link&utm_content=bottom+link&utm_campaign=lowercase-dashed-route)
 
 Requires .NET 4.0 or .NET 4.5.
