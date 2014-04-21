@@ -5,13 +5,14 @@ lowercase-dashed/hyphenated-routing-for-asp-net-mvc/like-this
 
 [Download](https://github.com/salarkh/lowercase-dashed-route/releases).
 
-[See my blog post & discussion](http://www.ata.io/lowercase-dashed-route/?utm_source=github&utm_medium=link&utm_content=bottom+link&utm_campaign=lowercase-dashed-route)
+[See ata's blog post & discussion](http://www.ata.io/lowercase-dashed-route/?utm_source=github&utm_medium=link&utm_content=bottom+link&utm_campaign=lowercase-dashed-route)
 
 Requires .NET 4.0 or .NET 4.5.
 
 <h3>What is new in 1.1 ?</h3>
 New: Support for 'namespace' constrains are added.<br />
 New: Added support for Areas.<br />
+New: Many new overloads for the class constructor.<br />
 
 <h3>Example</h3>
 <strong>If you use:</strong>
