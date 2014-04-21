@@ -9,9 +9,9 @@ lowercase-dashed/hyphenated-routing-for-asp-net-mvc/like-this
 
 Requires .NET 4.0 or .NET 4.5.
 
-<h3>What's new in 1.1 ?</h3>
-New: Support for 'namespace' constrains are added.
-New: Added support for Areas.
+<h3>What is new in 1.1 ?</h3>
+New: Support for 'namespace' constrains are added.<br />
+New: Added support for Areas.<br />
 
 <h3>Example</h3>
 <strong>If you use:</strong>
@@ -45,13 +45,14 @@ var route = new LowercaseDashedRoute("AreaName/{controller}/{action}/{id}",
                 id = UrlParameter.Optional
             }),
         new DashedRouteHandler(),
-		**<u>this</u>**
+		this
     );
 context.Routes.Add("AreaName_default", route);
 ```
 
 Developers: <br/>
 [Ata Sasmaz](http://www.ata.io/?utm_source=github&utm_medium=link&utm_content=bottom+link&utm_campaign=lowercase-dashed-route)
+<br/>
 [Salar Khalilzadeh](http://salarcode.com/?utm_source=github&utm_medium=link&utm_content=bottom+link&utm_campaign=lowercase-dashed-route)
 
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/68aaf0cf0d381566c247ed5749e15135 "githalytics.com")](http://githalytics.com/AtaS/lowercase-dashed-route)
