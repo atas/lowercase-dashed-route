@@ -46,7 +46,8 @@ var route = new LowercaseDashedRoute("AreaName/{controller}/{action}/{id}",
                 id = UrlParameter.Optional
             }),
         new DashedRouteHandler(),
-		this
+		this,
+		context
     );
 context.Routes.Add("AreaName_default", route);
 ```
