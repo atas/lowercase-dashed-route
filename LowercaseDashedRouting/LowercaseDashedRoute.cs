@@ -109,29 +109,18 @@ namespace LowercaseDashedRouting
 
 		public override VirtualPathData GetVirtualPath(RequestContext requestContext, RouteValueDictionary values)
 		{
-			VirtualPathData path = base.GetVirtualPath(requestContext, values);
-
-			if (path != null)
+			var action = values["action"] as string;
+			var controller = values["controller"] as string;
+			if (!string.IsNullOrEmpty(action))
 			{
-				string virtualPath = path.VirtualPath;
-				var lastIndexOf = virtualPath.LastIndexOf("?", System.StringComparison.InvariantCulture);
-
-				if (lastIndexOf != 0)
-				{
-					if (lastIndexOf > 0)
-					{
-						string leftPart = AddDashesBeforeCapitals(virtualPath.Substring(0, lastIndexOf)).ToLowerInvariant();
-						string queryPart = virtualPath.Substring(lastIndexOf);
-						path.VirtualPath = leftPart + queryPart;
-					}
-					else
-					{
-						path.VirtualPath = AddDashesBeforeCapitals(path.VirtualPath).ToLowerInvariant();
-					}
-				}
+				values["action"] = AddDashesBeforeCapitals(action).ToLowerInvariant();
 			}
 
-			return path;
+			if (!string.IsNullOrEmpty(controller))
+			{
+				values["controller"] = AddDashesBeforeCapitals(controller).ToLowerInvariant();
+			}
+			return base.GetVirtualPath(requestContext, values);
 		}
 
 		/// <summary>
@@ -142,9 +131,6 @@ namespace LowercaseDashedRouting
 		/// <returns>dashed text</returns>
 		protected static string AddDashesBeforeCapitals(string text)
 		{
-			if (string.IsNullOrWhiteSpace(text))
-				return string.Empty;
-
 			var newText = new StringBuilder(text.Length * 2);
 			newText.Append(text[0]);
 
