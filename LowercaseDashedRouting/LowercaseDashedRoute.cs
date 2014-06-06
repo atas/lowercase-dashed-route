@@ -1,7 +1,9 @@
 using System.Linq;
 using System.Text;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.UI.WebControls;
 
 namespace LowercaseDashedRouting
 {
@@ -111,15 +113,16 @@ namespace LowercaseDashedRouting
 		{
 			var action = values["action"] as string;
 			var controller = values["controller"] as string;
-			if (!string.IsNullOrEmpty(action))
+
+			values["action"] = AddDashesBeforeCapitals(action).ToLowerInvariant();
+			values["controller"] = AddDashesBeforeCapitals(controller).ToLowerInvariant();
+
+			if (DataTokens["LowercaseDashedRoute"] == null)
 			{
-				values["action"] = AddDashesBeforeCapitals(action).ToLowerInvariant();
+				Url = AddDashesForMatchingUrl(Url);
+				DataTokens["LowercaseDashedRoute"] = true;
 			}
 
-			if (!string.IsNullOrEmpty(controller))
-			{
-				values["controller"] = AddDashesBeforeCapitals(controller).ToLowerInvariant();
-			}
 			return base.GetVirtualPath(requestContext, values);
 		}
 
@@ -140,6 +143,41 @@ namespace LowercaseDashedRouting
 					newText.Append('-');
 
 				newText.Append(text[i]);
+			}
+			return newText.ToString();
+		}
+
+		protected static string AddDashesForMatchingUrl(string url)
+		{
+			var newText = new StringBuilder(url.Length * 2);
+			newText.Append(char.ToLower(url[0]));
+
+			bool skip = false;
+			for (int i = 1; i < url.Length; i++)
+			{
+				var c = url[i];
+				if (c == '{')
+				{
+					skip = true;
+					newText.Append(c);
+					continue;
+				}
+				else if (c == '}')
+				{
+					skip = false;
+					newText.Append(c);
+					continue;
+				}
+				if (skip)
+				{
+					newText.Append(c);
+					continue;
+				}
+
+				if (char.IsUpper(c) && char.IsLetterOrDigit(url[i - 1]))
+					newText.Append('-');
+
+				newText.Append(char.ToLower(c));
 			}
 			return newText.ToString();
 		}
