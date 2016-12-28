@@ -134,6 +134,10 @@ namespace LowercaseDashedRouting
 		/// <returns>dashed text</returns>
 		protected static string AddDashesBeforeCapitals(string text)
 		{
+			// bugfix for using @Url.RouteUrl
+			if(text == null)
+				return null;
+			
 			var newText = new StringBuilder(text.Length * 2);
 			newText.Append(text[0]);
 
