@@ -114,8 +114,12 @@ namespace LowercaseDashedRouting
 			var action = values["action"] as string;
 			var controller = values["controller"] as string;
 
-			values["action"] = AddDashesBeforeCapitals(action).ToLowerInvariant();
-			values["controller"] = AddDashesBeforeCapitals(controller).ToLowerInvariant();
+			values["action"] = action = AddDashesBeforeCapitals(action).ToLowerInvariant();
+			values["controller"] = controller = AddDashesBeforeCapitals(controller).ToLowerInvariant();
+
+			// FIX: for when the 'action' is not mentioned and the default value which is stored in the RouteData is about to be used!
+			requestContext.RouteData.Values["action"] = action;
+			requestContext.RouteData.Values["controller"] = controller;
 
 			if (DataTokens["LowercaseDashedRoute"] == null)
 			{
@@ -123,7 +127,8 @@ namespace LowercaseDashedRouting
 				DataTokens["LowercaseDashedRoute"] = true;
 			}
 
-			return base.GetVirtualPath(requestContext, values);
+			var virtualUrl = base.GetVirtualPath(requestContext, values);
+			return virtualUrl;
 		}
 
 		/// <summary>
@@ -135,9 +140,9 @@ namespace LowercaseDashedRouting
 		protected static string AddDashesBeforeCapitals(string text)
 		{
 			// bugfix for using @Url.RouteUrl
-			if(text == null)
+			if (text == null)
 				return null;
-			
+
 			var newText = new StringBuilder(text.Length * 2);
 			newText.Append(text[0]);
 
