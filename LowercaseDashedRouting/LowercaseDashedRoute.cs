@@ -129,7 +129,7 @@ namespace LowercaseDashedRouting
 				currentValues["action"] = dashedAction;
 			}
 			if (currentValues.TryGetValue("controller", out current) &&
-				(current as string) == originalAction)
+				(current as string) == originalController)
 			{
 				currentValues["controller"] = dashedController;
 			}
