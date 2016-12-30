@@ -113,11 +113,12 @@ namespace LowercaseDashedRouting
 		{
 			var originalAction = values["action"] as string;
 			var originalController = values["controller"] as string;
-			string dashedAction, dashedController;
+			string dashedAction = originalAction, dashedController = originalController;
 
-
-			values["action"] = dashedAction = AddDashesBeforeCapitals(originalAction).ToLowerInvariant();
-			values["controller"] = dashedController = AddDashesBeforeCapitals(originalController).ToLowerInvariant();
+			if (originalAction != null)
+				values["action"] = dashedAction = AddDashesBeforeCapitals(originalAction).ToLowerInvariant();
+			if (originalController != null)
+				values["controller"] = dashedController = AddDashesBeforeCapitals(originalController).ToLowerInvariant();
 
 			// FIX: for when the 'action' is not mentioned and the default value which is stored in the RouteData is about to be used!
 			var currentValues = requestContext.RouteData.Values;
