@@ -9,6 +9,9 @@ lowercase-dashed/hyphenated-routing-for-asp-net-mvc/like-this
 
 Requires .NET 4.0 or .NET 4.5.
 
+<h3>Install</h3>
+Install-Package **LowercaseDashedRouteEx**
+
 <h3>What is new in 1.1 ?</h3>
 New: Support for 'namespace' constraints are added.<br />
 New: Added support for Areas.<br />

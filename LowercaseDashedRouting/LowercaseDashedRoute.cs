@@ -111,15 +111,28 @@ namespace LowercaseDashedRouting
 
 		public override VirtualPathData GetVirtualPath(RequestContext requestContext, RouteValueDictionary values)
 		{
-			var action = values["action"] as string;
-			var controller = values["controller"] as string;
+			var originalAction = values["action"] as string;
+			var originalController = values["controller"] as string;
+			string dashedAction, dashedController;
 
-			values["action"] = action = AddDashesBeforeCapitals(action).ToLowerInvariant();
-			values["controller"] = controller = AddDashesBeforeCapitals(controller).ToLowerInvariant();
+
+			values["action"] = dashedAction = AddDashesBeforeCapitals(originalAction).ToLowerInvariant();
+			values["controller"] = dashedController = AddDashesBeforeCapitals(originalController).ToLowerInvariant();
 
 			// FIX: for when the 'action' is not mentioned and the default value which is stored in the RouteData is about to be used!
-			requestContext.RouteData.Values["action"] = action;
-			requestContext.RouteData.Values["controller"] = controller;
+			var currentValues = requestContext.RouteData.Values;
+			object current;
+
+			if (currentValues.TryGetValue("action", out current) &&
+				(current as string) == originalAction)
+			{
+				currentValues["action"] = dashedAction;
+			}
+			if (currentValues.TryGetValue("controller", out current) &&
+				(current as string) == originalAction)
+			{
+				currentValues["controller"] = dashedController;
+			}
 
 			if (DataTokens["LowercaseDashedRoute"] == null)
 			{
