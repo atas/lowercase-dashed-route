@@ -115,25 +115,51 @@ namespace LowercaseDashedRouting
 			var originalController = values["controller"] as string;
 			string dashedAction = originalAction, dashedController = originalController;
 
-			if (originalAction != null)
-				values["action"] = dashedAction = AddDashesBeforeCapitals(originalAction).ToLowerInvariant();
-			if (originalController != null)
-				values["controller"] = dashedController = AddDashesBeforeCapitals(originalController).ToLowerInvariant();
-
 			// FIX: for when the 'action' is not mentioned and the default value which is stored in the RouteData is about to be used!
 			var currentValues = requestContext.RouteData.Values;
 			object current;
 
-			if (currentValues.TryGetValue("action", out current) &&
-				(current as string) == originalAction)
+			// Dashing the 'Action'
+			if (originalAction != null)
 			{
-				currentValues["action"] = dashedAction;
+				values["action"] = dashedAction = AddDashesBeforeCapitals(originalAction).ToLowerInvariant();
+
+				if (currentValues.TryGetValue("action", out current) &&
+					(current as string) == originalAction)
+				{
+					currentValues["action"] = dashedAction;
+				}
 			}
-			if (currentValues.TryGetValue("controller", out current) &&
-				(current as string) == originalController)
+			else
 			{
-				currentValues["controller"] = dashedController;
+				// Applying dash to route values
+				if (currentValues.TryGetValue("action", out current))
+				{
+					currentValues["action"] = AddDashesBeforeCapitals(current as string).ToLowerInvariant();
+				}
 			}
+
+			// Aash the 'Controller'
+			if (originalController != null)
+			{
+				values["controller"] = dashedController = AddDashesBeforeCapitals(originalController).ToLowerInvariant();
+
+				if (currentValues.TryGetValue("controller", out current) &&
+					(current as string) == originalController)
+				{
+					currentValues["controller"] = dashedController;
+				}
+			}
+			else
+			{
+				// Applying dash to route values
+				if (currentValues.TryGetValue("controller", out current))
+				{
+					currentValues["controller"] = AddDashesBeforeCapitals(current as string).ToLowerInvariant();
+				}
+			}
+
+
 
 			if (DataTokens["LowercaseDashedRoute"] == null)
 			{
