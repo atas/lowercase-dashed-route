@@ -198,6 +198,9 @@ namespace LowercaseDashedRouting
 
 		protected static string AddDashesForMatchingUrl(string url)
 		{
+			if(url.Length == 0)
+				return url;
+			
 			var newText = new StringBuilder(url.Length * 2);
 			newText.Append(char.ToLower(url[0]));
 
